@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "string.h"
+float calAverage(int, int);
 
 struct xxx
 {
@@ -8,12 +9,10 @@ struct xxx
 	char name[30];
 }Emp[100];
 
+
 int main()
 {
 	int i, max = 0, j, n, sum = 0, min = 0,temp=0;
-
-
-
 	printf("Enter  Amount of Student => ");
 	scanf("%d", &n);
 	printf("\n***  <Name>  <Point>  ***\n\n");
@@ -22,6 +21,7 @@ int main()
 		printf("Enter data (%d) : ", i + 1);
 		scanf("%s %d", Emp[i].name, &Emp[i].p);
 	}
+
 	printf("\n\n");
 	printf(" *** Analyzing Data ***\n");
 	printf("\n");
@@ -42,11 +42,13 @@ int main()
 	{
 		sum = sum + Emp[j].p;
 	}
+	printf("%.3f\n", calAverage(sum,n));
 	min = Emp[0].p;
 	max = Emp[n - 1].p;
-	printf("%.3f\n", (float)sum / n);
 	printf("Min --> Max      = %d --> %d\n\n", min, max);
-
-
 	return 0;
+}
+float calAverage(int x, int y)
+{
+	return (float)x / y;
 }
